@@ -111,7 +111,7 @@ article p {
 }
 
 figure {
-    width:100%;
+    width: 100%;
     display: inline-block;
     text-align: center;
 }
@@ -124,7 +124,7 @@ svg {
 }
 
 figcaption::before {
-    margin-right:0.5rem;
+    margin-right: 0.5rem;
     counter-increment: figure-count;
     content: "図." counter(figure-count)
 }
