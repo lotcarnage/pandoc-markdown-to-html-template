@@ -21,6 +21,7 @@ main {
 
 aside {
     background-color: lightsalmon;
+    flex-shrink: 0;
     float: left;
 }
 
@@ -31,13 +32,22 @@ nav {
     position: sticky;
 }
 
+/* TOC style */
 nav ul {
+    list-style-type: none;
     padding-left: 0;
-    margin-left: 0;
+    margin-left: 0.5em;
+    counter-reset: toc-item-count;
 }
 
-nav li {
-    margin-left: 0.5rem;
+nav ul li ul {
+    margin-bottom: 0.5rem;
+}
+
+nav ul li::before {
+    counter-increment: toc-item-count;
+    padding-right: 0.5rem;
+    content: counters(toc-item-count, ".") ".";
 }
 
 article {
@@ -127,4 +137,154 @@ figcaption::before {
     margin-right: 0.5rem;
     counter-increment: figure-count;
     content: "図." counter(figure-count)
+}
+
+
+/* 表 */
+:root {
+    --table-header-color: #fff;
+    --table-header-bg: #444;
+    --table-row-odd-bg: #ddd;
+    --table-row-even-bg: #fff;
+    --table-data-color: #000;
+}
+
+article table {
+    font-family: sans-serif;
+    border-radius: 12px;
+    border-width: 2px;
+    border-color: var(--table-header-bg);
+    border-style: solid;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: auto;
+}
+
+article th {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-color);
+    font-size: larger;
+    text-align: center;
+}
+
+article table td {
+    color: var(--table-data-color);
+}
+
+article table td,
+article table th {
+    padding: 8px 1em 8px 1em;
+}
+
+article table tr:nth-child(odd) td {
+    background-color: var(--table-row-odd-bg);
+}
+
+article table tr:nth-child(even) td {
+    background-color: var(--table-row-even-bg);
+}
+
+article table tr:first-child th:first-child {
+    border-radius: 8px 0 0 0;
+}
+
+article table tr:first-child th:last-child {
+    border-radius: 0 8px 0 0;
+}
+
+article table tr:last-child td:first-child {
+    border-radius: 0 0 0 8px;
+}
+
+article table tr:last-child td:last-child {
+    border-radius: 0 0 8px 0;
+}
+
+/* code block */
+code {
+    font-family: monospace, monospace;
+}
+
+p>code,
+td>code {
+    background-color: #ddd;
+    color: #000;
+    border-radius: 2px;
+    padding: 2px 4px 2px 4px;
+    margin: 0 4px 0 4px;
+}
+
+:root {
+    --codeblock-bg-color: #222;
+    --codeblock-color: #adf;
+    --codeblock-operator: white;
+    --codeblock-keyword: #58c;
+    --codeblock-include-module: #d82;
+    --codeblock-control: #b6a;
+    --codeblock-preprocess: #b6a;
+    --codeblock-literal: #eea;
+    --codeblock-comment: #583;
+    --codeblock-line-number: #888;
+}
+
+div.sourceCode {
+    border: 1px solid black;
+    padding: 1rem 0;
+    border-radius: 1rem;
+    background-color: var(--codeblock-bg-color);
+    color: var(--codeblock-color);
+    margin: 1rem 2rem;
+}
+
+code.sourceCode {
+    counter-reset: line-count;
+}
+
+code.sourceCode>span::before {
+    display: inline-block;
+    width: 3rem;
+    text-align: right;
+    padding-right: 2px;
+    margin-right: 0.5rem;
+    border-right: 1px solid var(--codeblock-line-number);
+    color: var(--codeblock-line-number);
+    counter-increment: line-count;
+    content: counter(line-count);
+}
+
+code.sourceCode.c span {
+    font-style: normal;
+    font-weight: normal;
+}
+
+code.sourceCode.c>span>span.cf {
+    color: var(--codeblock-control);
+}
+
+code.sourceCode.c>span>span.kw {
+    color: var(--codeblock-keyword);
+}
+
+code.sourceCode.c>span>span.pp {
+    color: var(--codeblock-preprocess);
+}
+
+code.sourceCode.c>span>span.im {
+    color: var(--codeblock-include-module);
+}
+
+code.sourceCode.c>span>span.dv {
+    color: var(--codeblock-literal);
+}
+
+code.sourceCode.c>span>span.co {
+    color: var(--codeblock-comment);
+}
+
+code.sourceCode.c>span>span.dt {
+    color: var(--codeblock-keyword);
+}
+
+code.sourceCode.c>span>span.op {
+    color: var(--codeblock-operator);
 }
