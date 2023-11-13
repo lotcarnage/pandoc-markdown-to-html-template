@@ -113,3 +113,27 @@ if __name__ == "__main__":
     _main()
     exit()
 ```
+
+## 数式
+
+インラインの数式 $1+1=2$
+
+数式ブロックの例
+
+$$
+\begin{array}{rcrcr}
+ 1 & + &  2 & = &  3 \\
+11 & + & 32 & = & 43
+\end{array}
+$$
+
+$$
+\begin{pmatrix}
+a & b \\
+c & d \\
+\end{pmatrix}
+$$
+
+$$
+RMS[x] = \sqrt{\frac{1}{N}\sum_{i=1}^{N} x_{i}^2 }
+$$
