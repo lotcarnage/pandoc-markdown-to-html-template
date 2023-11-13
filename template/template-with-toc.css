@@ -1,6 +1,10 @@
 :root {
     --title-bg-color: brown;
+    --title-color: white;
     --toc-bg-color: lightsalmon;
+    --toc-link-color: brown;
+    --toc-link-visited-color: #420;
+    --toc-link-active-color: pink;
     --content-accent-color: brown;
     --content-headline-bg-color: lightsalmon;
     --content-text-color: black;
@@ -36,6 +40,7 @@ h1.title {
     margin: 0;
     padding: 0.5rem 0;
     background-color: var(--title-bg-color);
+    color: var(--title-color);
     text-align: center;
 }
 
@@ -69,10 +74,24 @@ nav ul li ul {
 }
 
 nav ul li::before {
+    color: var(--toc-link-color);
     counter-increment: toc-item-count;
     padding-right: 0.5rem;
     content: counters(toc-item-count, ".") ".";
 }
+
+nav a:link {
+    color: var(--toc-link-color);
+}
+
+nav a:visited {
+    color: var(--toc-link-visited-colorcolor);
+}
+
+nav a:active {
+    color: var(--toc-link-active-color);
+}
+
 
 article {
     counter-reset: section figure-count;
@@ -142,12 +161,13 @@ h4:not([class])::before {
 
 article p {
     text-indent: 1rem;
+    margin: 0.5rem 1rem;
     color: var(--content-text-color);
 }
 
 figure {
-    width: 100%;
-    display: inline-block;
+    margin: 0.5rem auto;
+    display: block;
     text-align: center;
 }
 
@@ -172,7 +192,7 @@ article table {
     border-style: solid;
     border-collapse: separate;
     border-spacing: 0;
-    margin: auto;
+    margin: 0.5rem auto;
 }
 
 article th {
