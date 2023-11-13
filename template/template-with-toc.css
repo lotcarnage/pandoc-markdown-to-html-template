@@ -1,3 +1,27 @@
+:root {
+    --title-bg-color: brown;
+    --toc-bg-color: lightsalmon;
+    --content-accent-color: brown;
+    --content-headline-bg-color: lightsalmon;
+    --content-text-color: black;
+    --content-bg-color: white;
+    --content-table-header-color: #fff;
+    --content-table-header-bg: #444;
+    --content-table-row-odd-bg: #ddd;
+    --content-table-row-even-bg: #fff;
+    --content-table-data-color: #000;
+    --codeblock-bg-color: #222;
+    --codeblock-color: #adf;
+    --codeblock-operator: white;
+    --codeblock-keyword: #58c;
+    --codeblock-include-module: #d82;
+    --codeblock-control: #b6a;
+    --codeblock-preprocess: #b6a;
+    --codeblock-literal: #eea;
+    --codeblock-comment: #583;
+    --codeblock-line-number: #888;
+}
+
 body {
     margin: 0;
 }
@@ -11,7 +35,7 @@ header {
 h1.title {
     margin: 0;
     padding: 0.5rem 0;
-    background-color: brown;
+    background-color: var(--title-bg-color);
     text-align: center;
 }
 
@@ -20,7 +44,7 @@ main {
 }
 
 aside {
-    background-color: lightsalmon;
+    background-color: var(--toc-bg-color);
     flex-shrink: 0;
     float: left;
 }
@@ -60,14 +84,14 @@ article {
 
 h1:not([class]) {
     margin: 0;
-    border: 2px solid brown;
-    background-color: lightsalmon;
+    border: 2px solid var(--content-accent-color);
+    background-color: var(--content-headline-bg-color);
     counter-reset: sub-section;
 }
 
 h1:not([class])::before {
-    border: 4px solid brown;
-    background-color: brown;
+    border: 4px solid var(--content-accent-color);
+    background-color: var(--content-accent-color);
     padding-left: 0.5rem;
     margin-right: 1rem;
     counter-increment: section;
@@ -76,8 +100,8 @@ h1:not([class])::before {
 
 h2:not([class]) {
     margin: 0;
-    border-bottom: 2px solid brown;
-    border-left: 4px solid brown;
+    border-bottom: 2px solid var(--content-accent-color);
+    border-left: 4px solid var(--content-accent-color);
     counter-reset: sub-sub-section;
 }
 
@@ -92,7 +116,7 @@ h3:not([class]) {
     font-size: medium;
     width: fit-content;
     margin: 0;
-    border-bottom: 2px dashed brown;
+    border-bottom: 2px dashed var(--content-accent-color);
     counter-reset: bulletpoint;
 }
 
@@ -118,6 +142,7 @@ h4:not([class])::before {
 
 article p {
     text-indent: 1rem;
+    color: var(--content-text-color);
 }
 
 figure {
@@ -139,21 +164,11 @@ figcaption::before {
     content: "図." counter(figure-count)
 }
 
-
-/* 表 */
-:root {
-    --table-header-color: #fff;
-    --table-header-bg: #444;
-    --table-row-odd-bg: #ddd;
-    --table-row-even-bg: #fff;
-    --table-data-color: #000;
-}
-
 article table {
     font-family: sans-serif;
     border-radius: 12px;
     border-width: 2px;
-    border-color: var(--table-header-bg);
+    border-color: var(--content-table-header-bg);
     border-style: solid;
     border-collapse: separate;
     border-spacing: 0;
@@ -161,14 +176,14 @@ article table {
 }
 
 article th {
-    background-color: var(--table-header-bg);
-    color: var(--table-header-color);
+    background-color: var(--content-table-header-bg);
+    color: var(--content-table-header-color);
     font-size: larger;
     text-align: center;
 }
 
 article table td {
-    color: var(--table-data-color);
+    color: var(--content-table-data-color);
 }
 
 article table td,
@@ -177,11 +192,11 @@ article table th {
 }
 
 article table tr:nth-child(odd) td {
-    background-color: var(--table-row-odd-bg);
+    background-color: var(--content-table-row-odd-bg);
 }
 
 article table tr:nth-child(even) td {
-    background-color: var(--table-row-even-bg);
+    background-color: var(--content-table-row-even-bg);
 }
 
 article table tr:first-child th:first-child {
@@ -214,18 +229,6 @@ td>code {
     margin: 0 4px 0 4px;
 }
 
-:root {
-    --codeblock-bg-color: #222;
-    --codeblock-color: #adf;
-    --codeblock-operator: white;
-    --codeblock-keyword: #58c;
-    --codeblock-include-module: #d82;
-    --codeblock-control: #b6a;
-    --codeblock-preprocess: #b6a;
-    --codeblock-literal: #eea;
-    --codeblock-comment: #583;
-    --codeblock-line-number: #888;
-}
 
 div.sourceCode {
     border: 1px solid black;
