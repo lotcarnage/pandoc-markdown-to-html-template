@@ -311,3 +311,15 @@ code.sourceCode.c>span>span.dt {
 code.sourceCode.c>span>span.op {
     color: var(--codeblock-operator);
 }
+
+/* math */
+math[display="block"] {
+    width: fit-content;
+    min-width: 30vw;
+    padding: 1rem;
+    border: 1px solid #888;
+    outline-offset: 2px;
+    outline: 1px solid #888;
+    border-radius: 8px;
+    margin: 1rem auto;
+}
