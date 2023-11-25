@@ -14,16 +14,26 @@
     --content-table-row-odd-bg: #ddd;
     --content-table-row-even-bg: #fff;
     --content-table-data-color: #000;
-    --codeblock-bg-color: #222;
-    --codeblock-color: #adf;
-    --codeblock-operator: white;
-    --codeblock-keyword: #58c;
-    --codeblock-include-module: #d82;
-    --codeblock-control: #b6a;
-    --codeblock-preprocess: #b6a;
-    --codeblock-literal: #eea;
-    --codeblock-comment: #583;
-    --codeblock-line-number: #888;
+    --codeblock-common-bg-color: #222;
+    --codeblock-default-text-color: #adf;
+    --codeblock-c-operator: white;
+    --codeblock-c-keyword: #58c;
+    --codeblock-c-include-module: #d82;
+    --codeblock-c-control: #b6a;
+    --codeblock-c-preprocess: #b6a;
+    --codeblock-c-literal: #eea;
+    --codeblock-c-comment: #583;
+    --codeblock-c-line-number: #888;
+    --codeblock-python-operator: white;
+    --codeblock-python-keyword: #58c;
+    --codeblock-python-import: #58c;
+    --codeblock-python-variable:#26e;
+    --codeblock-python-string: #d82;
+    --codeblock-python-builtin:#592;
+    --codeblock-python-control: #b6a;
+    --codeblock-python-literal: #eea;
+    --codeblock-python-comment: #888;
+    --codeblock-python-line-number: #888;
 }
 
 body {
@@ -254,8 +264,8 @@ div.sourceCode {
     border: 1px solid black;
     padding: 1rem 0;
     border-radius: 1rem;
-    background-color: var(--codeblock-bg-color);
-    color: var(--codeblock-color);
+    background-color: var(--codeblock-common-bg-color);
+    color: var(--codeblock-default-text-color);
     margin: 1rem 2rem;
 }
 
@@ -269,8 +279,8 @@ code.sourceCode>span::before {
     text-align: right;
     padding-right: 2px;
     margin-right: 0.5rem;
-    border-right: 1px solid var(--codeblock-line-number);
-    color: var(--codeblock-line-number);
+    border-right: 1px solid var(--codeblock-c-line-number);
+    color: var(--codeblock-c-line-number);
     counter-increment: line-count;
     content: counter(line-count);
 }
@@ -281,36 +291,82 @@ code.sourceCode.c span {
 }
 
 code.sourceCode.c>span>span.cf {
-    color: var(--codeblock-control);
+    color: var(--codeblock-c-control);
 }
 
 code.sourceCode.c>span>span.kw {
-    color: var(--codeblock-keyword);
+    color: var(--codeblock-c-keyword);
 }
 
 code.sourceCode.c>span>span.pp {
-    color: var(--codeblock-preprocess);
+    color: var(--codeblock-c-preprocess);
 }
 
 code.sourceCode.c>span>span.im {
-    color: var(--codeblock-include-module);
+    color: var(--codeblock-c-include-module);
 }
 
 code.sourceCode.c>span>span.dv {
-    color: var(--codeblock-literal);
+    color: var(--codeblock-c-literal);
 }
 
 code.sourceCode.c>span>span.co {
-    color: var(--codeblock-comment);
+    color: var(--codeblock-c-comment);
 }
 
 code.sourceCode.c>span>span.dt {
-    color: var(--codeblock-keyword);
+    color: var(--codeblock-c-keyword);
 }
 
 code.sourceCode.c>span>span.op {
-    color: var(--codeblock-operator);
+    color: var(--codeblock-c-operator);
 }
+
+code.sourceCode.python span {
+    font-style: normal;
+    font-weight: normal;
+}
+
+code.sourceCode.python>span>span.cf {
+    color: var(--codeblock-python-control);
+}
+
+code.sourceCode.python>span>span.kw {
+    color: var(--codeblock-python-keyword);
+}
+
+code.sourceCode.python>span>span.im {
+    color: var(--codeblock-python-import);
+}
+
+code.sourceCode.python>span>span.dv {
+    color: var(--codeblock-python-literal);
+}
+
+code.sourceCode.python>span>span.st {
+    color: var(--codeblock-python-string);
+}
+
+code.sourceCode.python>span>span.va {
+    color: var(--codeblock-python-variable);
+}
+
+code.sourceCode.python>span>span.bu {
+    color: var(--codeblock-python-builtin);
+}
+
+code.sourceCode.python>span>span.co {
+    color: var(--codeblock-python-comment);
+}
+
+code.sourceCode.python>span>span.dt {
+    color: var(--codeblock-python-keyword);
+}
+
+code.sourceCode.python>span>span.op {
+    color: var(--codeblock-python-operator);
+}
+
 
 /* math */
 math[display="block"] {
