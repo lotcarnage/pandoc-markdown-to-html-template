@@ -15,6 +15,7 @@
     --content-table-row-even-bg: #fff;
     --content-table-data-color: #000;
     --codeblock-common-bg-color: #222;
+    --codeblock-common-border-color: #222;
     --codeblock-default-text-color: #adf;
     --codeblock-c-operator: white;
     --codeblock-c-keyword: #58c;
@@ -261,7 +262,7 @@ td>code {
 
 
 div.sourceCode {
-    border: 1px solid black;
+    border: 1px solid var(--codeblock-common-border-color);
     padding: 1rem 0;
     border-radius: 1rem;
     background-color: var(--codeblock-common-bg-color);
