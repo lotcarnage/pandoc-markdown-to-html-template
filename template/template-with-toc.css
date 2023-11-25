@@ -110,6 +110,9 @@ article {
     padding: 0.5rem;
     float: right;
     width: 100%;
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1:not([class]) {
